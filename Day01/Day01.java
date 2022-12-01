@@ -49,11 +49,51 @@ public class Day01 {
 
 
     public static void part2() {
+        Scanner in;
+        try {
+            in = new Scanner(new File(DATA_FILE));
+
+        } catch (Exception e) {
+            System.out.println(e);
+            return;
+        }
+
+        
+        
+        int mostCalories = 0;
+
+        while (in.hasNext()) {
+            String line = in.nextLine();
+            int calories  = 0;
+            
+            //get calories not separated by a space
+            while(!line.equals("")) {
+                calories += Integer.parseInt(line);
+
+                if(in.hasNext()){
+                    line = in.nextLine();
+                }
+
+                else {
+                    break;
+                }
+
+            }
+
+            if (calories > mostCalories) {
+                mostCalories = calories;
+            }
+
+
+
+        }
+
+        System.out.println(mostCalories);
         
     }
 
     public static void main(String[] args) {
-        part1();
+        part2();
 
     }
 
