@@ -1,5 +1,7 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 import java.io.File;
+import java.util.Collections;
 
 public class Day01 {
 
@@ -59,8 +61,7 @@ public class Day01 {
         }
 
         
-        
-        int mostCalories = 0;
+        ArrayList<Integer> calorieList = new ArrayList<Integer>();
 
         while (in.hasNext()) {
             String line = in.nextLine();
@@ -69,26 +70,26 @@ public class Day01 {
             //get calories not separated by a space
             while(!line.equals("")) {
                 calories += Integer.parseInt(line);
-
                 if(in.hasNext()){
                     line = in.nextLine();
                 }
 
-                else {
+                else{
                     break;
                 }
+                
+
+                
 
             }
 
-            if (calories > mostCalories) {
-                mostCalories = calories;
-            }
-
-
+            calorieList.add(calories);
 
         }
+        Collections.sort(calorieList);
+        Collections.reverse(calorieList);
 
-        System.out.println(mostCalories);
+        System.out.println(calorieList.remove(0) + calorieList.remove(0) + calorieList.remove(0));
         
     }
 
