@@ -4,10 +4,10 @@ import java.io.*;
 
 public class Day04 {
 
-    public static void part1() throws IOException{
-        Scanner in = new Scanner(new File ("input.txt"));
+    public static void part1() throws IOException {
+        Scanner in = new Scanner(new File("input.txt"));
         int count = 0;
-        while(in.hasNext()){
+        while(in.hasNext()) {
             String line = in.nextLine();
             String[] sects = line.split(",");
             String[] sect1 = sects[0].split("-");
@@ -18,27 +18,16 @@ public class Day04 {
             int c = Integer.parseInt(sect2[0]);
             int d = Integer.parseInt(sect2[1]);
 
-
-            if (c <= a && b <= d){
+            if(c <= a && b <= d || a <=c && d <= b)
                 count++;
-
-            }
-
-            else if (a <= c && d <= b){
-                count++;
-            }
         }
-
         System.out.println(count);
-
-
-
     }
 
-    public static void part2() throws IOException{
-        Scanner in = new Scanner(new File ("input.txt"));
+    public static void part2() throws IOException {
+        Scanner in = new Scanner(new File("input.txt"));
         int count = 0;
-        while(in.hasNext()){
+        while(in.hasNext()) {
             String line = in.nextLine();
             String[] sects = line.split(",");
             String[] sect1 = sects[0].split("-");
@@ -49,15 +38,10 @@ public class Day04 {
             int c = Integer.parseInt(sect2[0]);
             int d = Integer.parseInt(sect2[1]);
 
-
-            if (a <= c && b <= d ){
+            if(!(a < c && b < c || a > d))
                 count++;
-            }
-
         }
-
         System.out.println(count);
-        
     }
 
     public static void main(String...args) {
@@ -67,7 +51,8 @@ public class Day04 {
             System.out.println(e);
         }
     }
-    
+
+
 }
 
 
